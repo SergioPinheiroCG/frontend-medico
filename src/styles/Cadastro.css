@@ -61,9 +61,9 @@
 .botoes-cadastro {
   display: flex;
   justify-content: center;
-  gap: 10px; /* Espaçamento entre os botões */
+  gap: 5px; /* Espaçamento entre os botões */
   width: 100%;
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 .botoes-cadastro button {

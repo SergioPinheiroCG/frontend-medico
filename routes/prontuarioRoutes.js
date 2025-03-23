@@ -14,7 +14,7 @@ router.post('/prontuario/:cpf', authMiddleware, createProntuario);
 router.get('/prontuario', authMiddleware, getAllProntuarios);
 router.get('/prontuario/:cpf', authMiddleware, getProntuariosByPatientCpf);
 router.put('/prontuario/:cpf', authMiddleware, updateProntuario);
-router.delete('/prontuario/:cpf', authMiddleware, deleteProntuario);
+router.delete('/prontuario/:id', authMiddleware, deleteProntuario);
 
 export default router;
 

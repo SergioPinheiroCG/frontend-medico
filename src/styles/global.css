@@ -20,5 +20,5 @@ body {
   width: 100%;
   max-width: 1200px; /* Define uma largura máxima para o conteúdo */
   margin: 0 auto; /* Centraliza o conteúdo horizontalmente */
-  padding: 20px; /* Adiciona um pouco de espaço ao redor do conteúdo */
+  padding: 10px; /* Adiciona um pouco de espaço ao redor do conteúdo */
 }

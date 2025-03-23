@@ -154,8 +154,6 @@ export const updatePatient = async (req, res) => {
     }
 };
 
-
-
 // Deleta paciente por CPF e seu endereço associado
 export const deletePatient = async (req, res) => {
     try {

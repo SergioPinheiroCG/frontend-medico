@@ -1,7 +1,7 @@
 import Prontuario from '../models/Prontuario.js';
 import Patient from '../models/Patient.js';
-import User from '../models/User.js';
 import mongoose from 'mongoose';
+
 
 // Função para enviar resposta de erro de forma padronizada
 const sendErrorResponse = (res, statusCode, message, error = null) => {
@@ -107,32 +107,30 @@ export const updateProntuario = async (req, res) => {
     }
 };
 
-// Deleta o prontuário de um paciente
 export const deleteProntuario = async (req, res) => {
     try {
-        const { cpf, prontuarioId } = req.params;
+      const { id } = req.params;
 
-        // Busca o paciente pelo CPF
-        const paciente = await Patient.findOne({ cpf });
-        if (!paciente) {
-            return sendErrorResponse(res, 404, 'Paciente não encontrado.');
-        }
+      // Verifica se o ID fornecido é válido
+      if (!mongoose.Types.ObjectId.isValid(id)) {
+        return res.status(400).json({ message: 'ID inválido.' });
+      }
 
-        // Deleta o prontuário
-        const prontuario = await Prontuario.findOneAndDelete({ _id: prontuarioId, paciente: paciente._id });
-        if (!prontuario) {
-            return sendErrorResponse(res, 404, 'Prontuário não encontrado.');
-        }
+      // Tenta encontrar e excluir o prontuário pelo ID
+      const prontuario = await Prontuario.findByIdAndDelete(id);
 
-        // Remove o prontuário da lista de prontuários do paciente
-        paciente.prontuarios.pull(prontuario._id);
-        await paciente.save();
+      if (!prontuario) {
+        return res.status(404).json({ message: 'Prontuário não encontrado.' });
+      }
 
-        return sendSuccessResponse(res, null, 'Prontuário deletado com sucesso');
+      res.json({ message: 'Prontuário excluído com sucesso.' });
     } catch (error) {
-        return sendErrorResponse(res, 500, 'Erro ao deletar prontuário', error);
+      res.status(500).json({ message: 'Erro ao excluir prontuário.', error });
     }
 };
+  
+  
+
 
 // Busca todos os prontuários
 export const getAllProntuarios = async (req, res) => {
