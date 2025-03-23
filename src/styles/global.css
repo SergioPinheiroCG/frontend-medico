@@ -1,0 +1,24 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Define o body para ocupar toda a altura e largura da tela */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Garante que o body ocupe a altura total da tela */
+  background-color: #c0daf8; /* Cor de fundo para visualização */
+  font-family: Arial, sans-serif; /* Define uma fonte padrão */
+}
+
+/* Centraliza o conteúdo principal, mas permite que ele ocupe toda a largura */
+#root {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 1200px; /* Define uma largura máxima para o conteúdo */
+  margin: 0 auto; /* Centraliza o conteúdo horizontalmente */
+  padding: 20px; /* Adiciona um pouco de espaço ao redor do conteúdo */
+}
