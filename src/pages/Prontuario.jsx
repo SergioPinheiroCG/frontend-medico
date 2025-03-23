@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { FaTrash } from 'react-icons/fa'; // Ícone de lixeira
 import '../styles/Prontuario.css';
 
 function Prontuario() {
   const { cpf } = useParams();
+  const navigate = useNavigate(); // Definição do navigate
+
   const [paciente, setPaciente] = useState(null);
   const [prontuarios, setProntuarios] = useState([]);
   const [erro, setErro] = useState('');
@@ -86,26 +88,18 @@ function Prontuario() {
     }
   };
 
-
-const handleDeleteProntuario = async (id) => {
-  const token = getToken();
-  try {
-    // Certifique-se de que a URL está correta com o ID do prontuário
-    const resposta = await axios.delete(`/api/prontuario/${id}`, {
-      headers: { 'Authorization': `Bearer ${token}` },
-    });
-    // Filtra a lista de prontuários removendo o deletado
-    setProntuarios(prontuarios.filter(prontuario => prontuario._id !== id));
-  } catch (error) {
-    setErro('Erro ao deletar prontuário.');
-    console.error(error);
-  }
-};
-
-
-
-
-
+  const handleDeleteProntuario = async (id) => {
+    const token = getToken();
+    try {
+      const resposta = await axios.delete(`/api/prontuario/${id}`, {
+        headers: { 'Authorization': `Bearer ${token}` },
+      });
+      setProntuarios(prontuarios.filter(prontuario => prontuario._id !== id));
+    } catch (error) {
+      setErro('Erro ao deletar prontuário.');
+      console.error(error);
+    }
+  };
 
   return (
     <div className="atendimento-container">
@@ -132,22 +126,23 @@ const handleDeleteProntuario = async (id) => {
               <form onSubmit={handleSubmit}>
                 <div className="campo">
                   <label>Descrição:</label>
-                  <textarea value={descricao} onChange={(e) => setDescricao(e.target.value)} required />
+                  <textarea value={descricao} onChange={(e) => setDescricao(e.target.value)} placeholder="Ex: Paciente relatou dor de cabeça" required />
                 </div>
                 <div className="campo">
                   <label>Diagnóstico:</label>
-                  <input type="text" value={diagnostico} onChange={(e) => setDiagnostico(e.target.value)} required />
+                  <input type="text" value={diagnostico} onChange={(e) => setDiagnostico(e.target.value)} placeholder="Ex: Enxaqueca crônica" required />
                 </div>
                 <div className="campo">
                   <label>Tratamento:</label>
-                  <input type="text" value={tratamento} onChange={(e) => setTratamento(e.target.value)} required />
+                  <input type="text" value={tratamento} onChange={(e) => setTratamento(e.target.value)} placeholder="Ex: Medicamento X e repouso" required />
                 </div>
                 <div className="campo">
                   <label>Observações:</label>
-                  <textarea value={observacoes} onChange={(e) => setObservacoes(e.target.value)} required />
+                  <textarea value={observacoes} onChange={(e) => setObservacoes(e.target.value)} placeholder="Ex: Retorno em 15 dias para nova avaliação" required />
                 </div>
                 <div className="botoes-prontuario">
                   <button type="submit">Salvar</button>
+                  <button type="button" onClick={() => navigate("/home")}>Voltar</button>
                 </div>
               </form>
             </div>
@@ -184,3 +179,4 @@ const handleDeleteProntuario = async (id) => {
 }
 
 export default Prontuario;
+

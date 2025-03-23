@@ -160,6 +160,7 @@ function AlterarPaciente() {
 
       <div className="botoes-cadastro">
         <button onClick={alterarPaciente}>Alterar Paciente</button>
+        <button type="button" onClick={() => navigate("/home")}>Voltar</button>
       </div>
     </div>
   );

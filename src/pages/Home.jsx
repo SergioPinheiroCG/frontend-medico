@@ -117,6 +117,7 @@ function Home() {
           onKeyDown={handleKeyPress}  
         />
         <button onClick={buscarPaciente}>Buscar</button>
+        
 
         {erroCpf && <p className="error-message">Paciente não encontrado! Deseja cadastrar?</p>}
 
@@ -144,7 +145,10 @@ function Home() {
         {/* Exibe erro geral */}
         {erro && <p className="error-message">{erro}</p>}
       </div>
+      
+      <button onClick={() => navigate('/login')} className="voltar-button">Voltar para Login</button>
     </div>
+    
   );
 }
 
