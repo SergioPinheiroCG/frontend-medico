@@ -30,7 +30,7 @@ function CadastroUsuario() {
       if (resposta.status === 201) {
         navigate('/login');
       }
-    } catch (error) {
+    } catch {
       setErro('Erro ao cadastrar. Tente novamente.');
     }
   };

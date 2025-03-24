@@ -2,7 +2,6 @@ import User from '../models/User.js';
 import Patient from '../models/Patient.js';
 import Prontuario from '../models/Prontuario.js';
 import Endereco from '../models/Endereco.js';
-//import mongoose from 'mongoose';
 
 // Função para enviar resposta de erro de forma padronizada
 const sendErrorResponse = (res, statusCode, message, error = null) => {

@@ -8,7 +8,7 @@ const userSchema = new mongoose.Schema({
     email: { type: String, unique: true, match: /^[^\s@]+@[^\s@]+\.[^\s@]+$/ }, // Valida o formato do email
     senha: { type: String, required: true },
     role: { type: String, enum: ['medico', 'admin'], default: 'medico' },
-    pacientes: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Patient' }] // N:N
+    pacientes: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Patient' }] // N:N (Um médico pode ter vários pacientes e um paciente pode ter vários médicos)
 });
 
 // Exportando o modelo User
