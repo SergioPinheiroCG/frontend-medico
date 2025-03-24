@@ -1,5 +1,5 @@
 /* Container principal */
-.cadastro-container {
+.alterar-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -10,8 +10,8 @@
   max-width: 600px; /* Limita a largura máxima do formulário */
   margin: 30px auto; /* Centraliza o formulário na tela */
 }
-
-.image {
+/* Imagem do médico */
+.image-alterar {
   position:absolute;
   top: 80px;
   width: 150px;
@@ -19,7 +19,7 @@
 }
 
 /* Título do formulário */
-.cadastro-container h2 {
+.alterar-container h2 {
   margin-top: 50px;
   margin-bottom: 100px;
   font-size: 24px;
@@ -27,14 +27,14 @@
 }
 
 /* Mensagens de erro e sucesso */
-.cadastro-container .error-message {
+.alterar-container .error-message {
   color: red;
   margin-top: 10px;
   font-size: 16px;
   text-align: center;
 }
 
-.cadastro-container .success-message {
+.alterar-container .success-message {
   color: green;
   margin-top: 10px;
   font-size: 16px;
@@ -44,16 +44,16 @@
 /* Campos do formulário */
 .campo {
   display: flex;
-  align-items: center; /* Alinha o label e o input na mesma linha */
-  margin-bottom: 15px;
+  align-items:flex-start; /* Alinha o label e o input na mesma linha */
+  margin-bottom: 10px;
   width: 100%;
 }
 
 .campo label {
   flex: 1; /* Ocupa 1 parte do espaço */
   font-size: 16px;
-  margin-right: 10px; /* Espaçamento entre o label e o input */
-  text-align: right; /* Alinha o texto do label à direita */
+  margin-right: 15px; /* Espaçamento entre o label e o input */
+  text-align: left; 
 }
 
 .campo input {

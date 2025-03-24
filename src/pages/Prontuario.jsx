@@ -104,6 +104,8 @@ function Prontuario() {
   return (
     <div className="atendimento-container">
       <h2>Prontuário Médico</h2>
+      <img src="/medic.png" alt="Médico" className="image-prontuario" />
+
       {erro && <p className="error-message">{erro}</p>}
       {paciente ? (
         <>
@@ -153,6 +155,8 @@ function Prontuario() {
                   {prontuarios.map((prontuario) => (
                     <li key={prontuario._id}>
                       <div className="prontuario-item">
+                        <p><strong>Data:</strong> {new Date(prontuario.data).toLocaleDateString('pt-BR', 
+                          { day: '2-digit', month: '2-digit', year: 'numeric' })}</p>
                         <p><strong>Descrição:</strong> {prontuario.descricao}</p>
                         <p><strong>Diagnóstico:</strong> {prontuario.diagnostico}</p>
                         <p><strong>Tratamento:</strong> {prontuario.tratamento}</p>

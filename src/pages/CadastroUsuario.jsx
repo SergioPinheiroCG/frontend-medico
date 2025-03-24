@@ -38,6 +38,8 @@ function CadastroUsuario() {
   return (
     <div className="cadastro-container">
       <h2>Cadastro de Usuário</h2>
+      <img src="/medic.png" alt="Médico" className="image-alterar" />
+
       {erro && <p style={{ color: 'red' }}>{erro}</p>}
 
       <div className="campo">
@@ -91,6 +93,7 @@ function CadastroUsuario() {
       <div className="botoes-cadastro">
         <button onClick={cadastrarUsuario}>Cadastrar</button>
       </div>
+      <button onClick={() => navigate('/login')} className="voltar-button">Voltar</button>
     </div>
   );
 }

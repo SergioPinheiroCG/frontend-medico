@@ -68,6 +68,8 @@ function CadastroPaciente() {
   return (
     <div className="cadastro-container">
       <h2>Cadastro de Paciente</h2>
+      <img src="/medic.png" alt="Médico" className="image-alterar" />
+
       {erro && <p className="error-message">{erro}</p>}
       {sucesso && <p className="success-message">{sucesso}</p>}
 
@@ -119,7 +121,9 @@ function CadastroPaciente() {
 
       <div className="botoes-cadastro">
         <button onClick={cadastrarPaciente}>Cadastrar Paciente</button>
+        
       </div>
+      <button onClick={() => navigate('/home')} className="voltar-button">Voltar</button>
     </div>
   );
 }

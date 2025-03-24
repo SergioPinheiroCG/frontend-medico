@@ -13,10 +13,10 @@
 
 /* Imagem do médico */
 .home-image {
-  width: 200px;
-  margin-top: 20px;
-  margin-bottom: 20px; /* Adiciona espaço abaixo da imagem */
-}
+    width: 200px;
+    margin-top: 20px;
+    margin-bottom: 20px; /* Adiciona espaço abaixo da imagem */
+  }
 
 /* Container para os botões de navegação */
 .search-paciente {

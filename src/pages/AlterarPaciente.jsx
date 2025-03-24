@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
-import '../styles/Cadastro.css';
+import '../styles/Alterar.css';
 
 function AlterarPaciente() {
   const navigate = useNavigate();
@@ -87,8 +87,11 @@ function AlterarPaciente() {
   };
 
   return (
-    <div className="cadastro-container">
+    <div className="alterar-container">
       <h2>Alterar Dados do Paciente</h2>
+      <img src="/medic.png" alt="Médico" className="image-alterar" />
+
+
       {erro && <p className="error-message">{erro}</p>}
       {sucesso && <p className="success-message">{sucesso}</p>}
       
